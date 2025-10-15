@@ -30,7 +30,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-1 my-1 ps-2" href="#">
+            <a class="nav-link mx-1 my-1 ps-2" href="calendar.php">
               <img src="Images\Icons\Calendar.png" alt="Calendar" width="24" height="24">
               <span>Calendar</span>
             </a>

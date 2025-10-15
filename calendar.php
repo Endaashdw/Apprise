@@ -5,7 +5,7 @@
         <!-- Header Row -->
         <div class="row align-items-center">
             <div class="col-10 col-md-11">
-            <h1 class="m-0">Team Members</h1>
+            <h1 class="m-0">Calendar</h1>
             </div>
             <div class="col-2 col-md-1 d-flex justify-content-center align-items-center">
             <img 
@@ -24,13 +24,14 @@
                     <table class="table align-middle">
                         <thead>
                             <tr>
-                            <th>MEMBER</th>
-                            <th>COMMON ROLE</th>
-                            <th>TASK PROGRESS</th>
+                            <th class="w-25">CATEGORY</th>
+                            <th>MESSAGE</th>
+                            <th class="w-25">STATUS</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
+                                <td><span class="badge border border-dark category-programming px-3 py-2">PROGRAMMING</span></td>
                                 <td>
                                     <div class="row g-0">
                                         <div class="col-md-2 d-none d-md-block">
@@ -40,31 +41,14 @@
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-10">
-                                            Magnus C.
+                                            Magnus C. has updated the status of Inventory System to:
                                         </div>
                                     </div>
                                 </td>
-                                <td><span class="badge border border-dark category-programming px-3 py-2">PROGRAMMING</span></td>
-                                <td>2/3</td>
+                                <td><span class="badge border border-dark status-for-review px-3 py-2">FOR REVIEW</span></td>
                             </tr>
                             <tr>
-                                <td>
-                                    <div class="row g-0">
-                                        <div class="col-md-2 d-none d-md-block">
-                                            <div class="d-flex align-items-center gap-2">
-                                                <div class="rounded-circle bg-warning border border-dark text-white text-center fw-bold" style="width:30px;height:30px;line-height:30px;">J</div>
-                                                <i class="bi bi-three-dots-vertical"></i>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-md-10">
-                                            Jordan M.
-                                        </div>
-                                    </div>
-                                </td>
-                                <td><span class="badge border border-dark category-assets px-3 py-2">ASSETS/ART</span></td>
-                                <td>1/3</td>
-                            </tr>
-                            <tr>
+                                <td><span class="badge border border-dark category-game-design px-3 py-2">GAME DESIGN</span></td>
                                 <td>
                                     <div class="row g-0">
                                         <div class="col-md-2 d-none d-md-block">
@@ -74,29 +58,28 @@
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-10">
-                                            Leonardo D.
+                                            Leonardo D. has updated the status of Initial Concept Art to:
                                         </div>
                                     </div>
                                 </td>
-                                <td><span class="badge border border-dark category-game-design px-3 py-2">GAME DESIGN</span></td>
-                                <td>2/3</td>
+                                <td><span class="badge border border-dark status-completed px-3 py-2">COMPLETED</span></td>
                             </tr>
                             <tr>
+                                <td><span class="badge border border-dark category-assets px-3 py-2">ASSETS/ART</span></td>
                                 <td>
                                     <div class="row g-0">
                                         <div class="col-md-2 d-none d-md-block">
                                             <div class="d-flex align-items-center gap-2">
-                                                <div class="rounded-circle bg-danger border border-dark text-white text-center fw-bold" style="width:30px;height:30px;line-height:30px;">K</div>
+                                                <div class="rounded-circle bg-warning border border-dark text-white text-center fw-bold" style="width:30px;height:30px;line-height:30px;">J</div>
                                                 <i class="bi bi-three-dots-vertical"></i>
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-10">
-                                            Keanu R.
+                                            Jordan M. added task: Enemy Concept Art
                                         </div>
                                     </div>
                                 </td>
-                                <td><span class="badge border border-dark category-programming px-3 py-2">PROGRAMMING</span></td>
-                                <td>2/3</td>
+                                <td></td>
                             </tr>
                             <!-- Add more rows here -->
                         </tbody>
