@@ -24,7 +24,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-1 my-1 ps-2" href="#">
+            <a class="nav-link mx-1 my-1 ps-2" href="team.php">
               <img src="Images\Icons\People.png" alt="People" width="24" height="24">
               <span>People</span>
             </a>
