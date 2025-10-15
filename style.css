@@ -1,0 +1,35 @@
+.projects h1 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+.projects h2 {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+}
+
+.projects h3 {
+  font-size: clamp(.25rem, 2vw, 1rem);
+}
+
+.status-completed {
+    background-color: #4FE442;
+}
+
+.status-for-review {
+    background-color: #E4AB42;
+}
+
+.status-incomplete {
+    background-color: #E45A42;
+}
+
+.category-programming {
+    background-color: #42CCE4;
+}
+
+.category-assets {
+    background-color: #4742E4;
+}
+
+.category-game-design {
+    background-color: #E442CE;
+}
