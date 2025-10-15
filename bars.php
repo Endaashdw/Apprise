@@ -12,13 +12,13 @@
       <div class="offcanvas-body d-flex flex-column">
         <ul class="navbar-nav justify-content-start flex-grow-1">
           <li class="nav-item">
-            <a class="nav-link mx-1 my-1 ps-2" href="#">
+            <a class="nav-link mx-1 my-1 ps-2" href="home.php">
               <img src="Images\Icons\Dashboard.png" alt="Dashboard" width="24" height="24">
               <span>Dashboard</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-1 my-1 ps-2" href="#">
+            <a class="nav-link mx-1 my-1 ps-2" href="projects.php">
               <img src="Images\Icons\Assignment.png" alt="Projects" width="24" height="24">
               <span>Projects</span>
             </a>
