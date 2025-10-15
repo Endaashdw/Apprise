@@ -1,5 +1,5 @@
 <?php include("main_header.php"); ?>
-<!-- Matthew Bibaoco - 10/15/2025 !-->
+<!-- Matthew Bibaoco - 10/15/2025-->
 <div class="d-flex justify-content-center align-items-center vh-100 projects">
     <div class="bg-light rounded shadow w-75">
         <!-- Header Row -->
