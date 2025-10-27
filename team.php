@@ -20,6 +20,7 @@
         <!-- Project Table -->
         <div class="row justify-content-center mt-3">
             <div class="col-12">
+                <!--
                 <div class="table-responsive">
                     <table class="table align-middle">
                         <thead>
@@ -98,9 +99,46 @@
                                 <td><span class="badge border border-dark category-programming px-3 py-2">PROGRAMMING</span></td>
                                 <td>2/3</td>
                             </tr>
-                            <!-- Add more rows here -->
+                            Add more rows here
                         </tbody>
                     </table>
+                </div>
+                !-->
+                <?php
+                    include('mysql_connect.php');
+                    
+                    $select_query = "SELECT * FROM users ORDER BY user_id ASC";
+                    $result = mysqli_query($conn, $select_query);
+                ?>
+                <div class ="col-sm-12">
+                    <h1>Libary Books Available</h1>
+                    <table class="table table-bordered table-striped table-hover table-responsive">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Common Role</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php while($row = mysqli_fetch_array($result)) { ?>
+                                <tr>
+                                    <td><?php echo $row['name'] ?></td>
+                                    <td><?php echo $row['email'] ?></td>
+                                    <td><?php echo $row['role'] ?></td>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
+                <div class ="col-sm-12">
+                    <form action="add_user.php" method="POST">
+                        Name: <input type="text" name="name" />
+                        Email: <input type="text" name="email" />
+                        Password: <input type="text" name="password" />
+                        Role: <input type="text" name="role" />
+                        <input type="submit" value="Add" />
+                    </form>
                 </div>
             </div>
         </div>

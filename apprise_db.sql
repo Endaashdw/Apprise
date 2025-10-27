@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 26, 2025 at 04:00 PM
+-- Generation Time: Oct 27, 2025 at 02:18 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,14 +20,15 @@ SET time_zone = "+00:00";
 --
 -- Database: `apprise_db`
 --
-
+CREATE DATABASE IF NOT EXISTS apprise_db;
+USE apprise_db;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `projects`
 --
 
-CREATE TABLE `projects` (
+CREATE TABLE IF NOT EXISTS  `projects` (
   `project_id` int(11) NOT NULL,
   `project_name` varchar(255) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
@@ -43,7 +44,7 @@ CREATE TABLE `projects` (
 -- Table structure for table `tasks`
 --
 
-CREATE TABLE `tasks` (
+CREATE TABLE IF NOT EXISTS  `tasks` (
   `task_id` int(11) NOT NULL,
   `task_name` varchar(255) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
@@ -59,12 +60,19 @@ CREATE TABLE `tasks` (
 -- Table structure for table `teams`
 --
 
-CREATE TABLE `teams` (
+CREATE TABLE IF NOT EXISTS  `teams` (
   `team_id` int(11) NOT NULL,
   `team_name` varchar(255) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `teams`
+--
+
+INSERT INTO `teams` (`team_id`, `team_name`, `description`, `created_at`) VALUES
+(1, 'Apprise', 'Apprise Developers of USLS', '2025-10-27 21:01:59');
 
 -- --------------------------------------------------------
 
@@ -72,7 +80,7 @@ CREATE TABLE `teams` (
 -- Table structure for table `users`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE IF NOT EXISTS  `users` (
   `user_id` int(11) NOT NULL,
   `team_id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -81,6 +89,13 @@ CREATE TABLE `users` (
   `user_password` varchar(255) DEFAULT NULL,
   `role` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `team_id`, `name`, `email`, `username`, `user_password`, `role`) VALUES
+(1, 1, 'Magnus C.', 'magnus.c@apprise.com', 'Magnus C.', 'password001', 'Programming');
 
 --
 -- Indexes for dumped tables
@@ -134,13 +149,13 @@ ALTER TABLE `tasks`
 -- AUTO_INCREMENT for table `teams`
 --
 ALTER TABLE `teams`
-  MODIFY `team_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `team_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
