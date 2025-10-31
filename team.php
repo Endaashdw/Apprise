@@ -8,12 +8,15 @@
             <h1 class="m-0">Team Members</h1>
             </div>
             <div class="col-2 col-md-1 d-flex justify-content-center align-items-center">
-            <img 
-                src="Images/Icons/Plus.png" 
-                alt="Plus" 
-                class="img-fluid"
-                style="max-width: 32px;"
-            >
+            <!-- Trigger Button -->
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#userModal">
+                <img 
+                    src="Images/Icons/Plus.png" 
+                    alt="Plus" 
+                    class="img-fluid"
+                    style="max-width: 32px;"
+                >
+            </button>
             </div>
         </div>
 
@@ -104,6 +107,7 @@
                     </table>
                 </div>
                 !-->
+                <!-- Matthew Bibaoco - 10/28/2025 !-->
                 <?php
                     include('mysql_connect.php');
                     
@@ -118,6 +122,7 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Common Role</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -126,20 +131,45 @@
                                     <td><?php echo $row['name'] ?></td>
                                     <td><?php echo $row['email'] ?></td>
                                     <td><?php echo $row['role'] ?></td>
+                                    <td>EDIT DELETE</td>
                                 </tr>
                             <?php } ?>
                         </tbody>
                     </table>
                 </div>
-                <div class ="col-sm-12">
-                    <form action="add_user.php" method="POST">
-                        Name: <input type="text" name="name" />
-                        Email: <input type="text" name="email" />
-                        Password: <input type="text" name="password" />
-                        Role: <input type="text" name="role" />
-                        <input type="submit" value="Add" />
-                    </form>
+            </div>
+        </div>
+
+        <!-- Matthew Bibaoco - 10/31/2025 !-->
+        <!-- Modal -->
+        <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="userModalLabel">Add New User</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="add_user.php" method="POST">
+                <div class="mb-3">
+                    <label class="form-label">Name:</label>
+                    <input type="text" name="name" class="form-control" required />
                 </div>
+                <div class="mb-3">
+                    <label class="form-label">Email:</label>
+                    <input type="email" name="email" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Password:</label>
+                    <input type="password" name="password" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Role:</label>
+                    <input type="text" name="role" class="form-control" required />
+                </div>
+                <button type="submit" class="btn btn-success">Add</button>
+                </form>
+            </div>
             </div>
         </div>
     </div>
