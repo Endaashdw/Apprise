@@ -115,7 +115,6 @@
                     $result = mysqli_query($conn, $select_query);
                 ?>
                 <div class ="col-sm-12">
-                    <h1>Libary Books Available</h1>
                     <table class="table table-bordered table-striped table-hover table-responsive">
                         <thead>
                             <tr>
