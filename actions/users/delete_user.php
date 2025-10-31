@@ -1,5 +1,5 @@
 <?php
-    include("../../includes/mysql_connect.php");
+    include("../../Includes/mysql_connect.php");
     $teamID = $_GET['id'];
 
     $delete_query = "DELETE FROM users WHERE user_id = $teamID";

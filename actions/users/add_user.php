@@ -1,5 +1,5 @@
 <?php
-    include("../../includes/mysql_connect.php");
+    include("../../Includes/mysql_connect.php");
     $name = $_POST['name'];
     $email = $_POST['email'];
     $password = $_POST['password'];

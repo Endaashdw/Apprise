@@ -1,5 +1,5 @@
 <?php
-    include("../../includes/mysql_connect.php");
+    include("../../Includes/mysql_connect.php");
 
     if (isset($_POST['edit_id'])) {
         $id = $_POST['edit_id'];
