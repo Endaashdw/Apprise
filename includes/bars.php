@@ -13,37 +13,37 @@
         <ul class="navbar-nav justify-content-start flex-grow-1">
           <li class="nav-item">
             <a class="nav-link mx-1 my-1 ps-2" href="home.php">
-              <img src="Images\Icons\Dashboard.png" alt="Dashboard" width="24" height="24">
+              <img src="Assets/Images/Icons/Dashboard.png" alt="Dashboard" width="24" height="24">
               <span>Dashboard</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link mx-1 my-1 ps-2" href="projects.php">
-              <img src="Images\Icons\Assignment.png" alt="Projects" width="24" height="24">
+              <img src="Assets/Images/Icons/Assignment.png" alt="Projects" width="24" height="24">
               <span>Projects</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link mx-1 my-1 ps-2" href="team.php">
-              <img src="Images\Icons\People.png" alt="People" width="24" height="24">
+              <img src="Assets/Images/Icons/People.png" alt="People" width="24" height="24">
               <span>People</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link mx-1 my-1 ps-2" href="calendar.php">
-              <img src="Images\Icons\Calendar.png" alt="Calendar" width="24" height="24">
+              <img src="Assets/Images/Icons/Calendar.png" alt="Calendar" width="24" height="24">
               <span>Calendar</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link mx-1 my-1 ps-2" href="#">
-              <img src="Images\Icons\Settings.png" alt="Settings" width="24" height="24">
+              <img src="Assets/Images/Icons/Settings.png" alt="Settings" width="24" height="24">
               <span>Settings</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link mx-1 my-1 ps-2" href="#">
-              <img src="Images\Icons\Logout.png" alt="Logout" width="24" height="24">
+              <img src="Assets/Images/Icons/Logout.png" alt="Logout" width="24" height="24">
               <span>Logout</span>
             </a>
           </li>

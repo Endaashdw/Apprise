@@ -1,4 +1,4 @@
-<?php include("main_header.php"); ?>
+<?php include("includes/main_header.php"); ?>
 <!-- Matthew Bibaoco - 10/15/2025 !-->
 <div class="d-flex justify-content-center align-items-center vh-100 projects">
     <div class="bg-light rounded shadow w-75 h-75">
@@ -9,7 +9,7 @@
             </div>
             <div class="col-2 col-md-1 d-flex justify-content-center align-items-center">
             <img 
-                src="Images/Icons/Plus.png" 
+                src="Assets\Images\Icons\Plus.png" 
                 alt="Plus" 
                 class="img-fluid"
                 style="max-width: 32px;"
@@ -89,5 +89,5 @@
         </div>
     </div>
 </div>
-<?php include("bars.php"); ?>
-<?php include("main_footer.php"); ?>
+<?php include("includes/bars.php"); ?>
+<?php include("includes/main_footer.php"); ?>

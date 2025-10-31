@@ -11,7 +11,7 @@
           crossorigin="anonymous">
 
     <!-- Your custom CSS -->
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./Assets/style.css">
 
     <title>My Page</title>
   </head>

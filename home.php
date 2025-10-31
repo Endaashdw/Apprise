@@ -1,5 +1,5 @@
-<?php include("main_header.php"); ?>
-<?php include("bars.php"); ?>
+<?php include("includes/main_header.php"); ?>
+<?php include("includes/bars.php"); ?>
 
 <!-- Kaizen Batang - 10/15/2025 -->
 <section class="main min-vh-100 mt-lg-5">
@@ -11,17 +11,17 @@
                     <div class="row w-100">
                         <div class="col-4 d-flex flex-column justify-content-center align-items-center">
                             <a href="projects.php">
-                                <img src="Images\Icons\Assignment.png" alt="Projects" width="80" height="80">
+                                <img src="Assets/Images/Icons/Assignment.png" alt="Projects" width="80" height="80">
                             </a>
                         </div>
                         <div class="col-4 d-flex flex-column justify-content-center align-items-center">
                             <a href="team.php">
-                                <img src="Images\Icons\People.png" alt="People" width="80" height="80">
+                                <img src="Assets/Images/Icons/People.png" alt="People" width="80" height="80">
                             </a>
                         </div>
                         <div class="col-4 d-flex flex-column justify-content-center align-items-center">
                             <a href="calendar.php">
-                                <img src="Images\Icons\Calendar.png" alt="Calendar" width="80" height="80">
+                                <img src="Assets/Images/Icons/Calendar.png" alt="Calendar" width="80" height="80">
                             </a>
                         </div>
                     </div>
@@ -63,4 +63,4 @@
 </section>
 
 
-<?php include("main_footer.php"); ?>
+<?php include("includes/main_footer.php"); ?>

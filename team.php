@@ -1,4 +1,4 @@
-<?php include("main_header.php"); ?>
+<?php include("includes/main_header.php"); ?>
 <!-- Matthew Bibaoco - 10/15/2025 !-->
 <div class="d-flex justify-content-center align-items-center vh-100 projects">
     <div class="bg-light rounded shadow w-75 h-75">
@@ -9,9 +9,9 @@
             </div>
             <div class="col-2 col-md-1 d-flex justify-content-center align-items-center">
             <!-- Trigger Button -->
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#userModal">
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#addModal">
                 <img 
-                    src="Images/Icons/Plus.png" 
+                    src="Assets\Images\Icons\Plus.png" 
                     alt="Plus" 
                     class="img-fluid"
                     style="max-width: 32px;"
@@ -23,93 +23,9 @@
         <!-- Project Table -->
         <div class="row justify-content-center mt-3">
             <div class="col-12">
-                <!--
-                <div class="table-responsive">
-                    <table class="table align-middle">
-                        <thead>
-                            <tr>
-                            <th>MEMBER</th>
-                            <th>COMMON ROLE</th>
-                            <th>TASK PROGRESS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div class="row g-0">
-                                        <div class="col-md-2 d-none d-md-block">
-                                            <div class="d-flex align-items-center gap-2">
-                                                <div class="rounded-circle bg-danger border border-dark text-white text-center fw-bold" style="width:30px;height:30px;line-height:30px;">M</div>
-                                                <i class="bi bi-three-dots-vertical"></i>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-md-10">
-                                            Magnus C.
-                                        </div>
-                                    </div>
-                                </td>
-                                <td><span class="badge border border-dark category-programming px-3 py-2">PROGRAMMING</span></td>
-                                <td>2/3</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="row g-0">
-                                        <div class="col-md-2 d-none d-md-block">
-                                            <div class="d-flex align-items-center gap-2">
-                                                <div class="rounded-circle bg-warning border border-dark text-white text-center fw-bold" style="width:30px;height:30px;line-height:30px;">J</div>
-                                                <i class="bi bi-three-dots-vertical"></i>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-md-10">
-                                            Jordan M.
-                                        </div>
-                                    </div>
-                                </td>
-                                <td><span class="badge border border-dark category-assets px-3 py-2">ASSETS/ART</span></td>
-                                <td>1/3</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="row g-0">
-                                        <div class="col-md-2 d-none d-md-block">
-                                            <div class="d-flex align-items-center gap-2">
-                                                <div class="rounded-circle bg-info border border-dark text-white text-center fw-bold" style="width:30px;height:30px;line-height:30px;">L</div>
-                                                <i class="bi bi-three-dots-vertical"></i>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-md-10">
-                                            Leonardo D.
-                                        </div>
-                                    </div>
-                                </td>
-                                <td><span class="badge border border-dark category-game-design px-3 py-2">GAME DESIGN</span></td>
-                                <td>2/3</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="row g-0">
-                                        <div class="col-md-2 d-none d-md-block">
-                                            <div class="d-flex align-items-center gap-2">
-                                                <div class="rounded-circle bg-danger border border-dark text-white text-center fw-bold" style="width:30px;height:30px;line-height:30px;">K</div>
-                                                <i class="bi bi-three-dots-vertical"></i>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-md-10">
-                                            Keanu R.
-                                        </div>
-                                    </div>
-                                </td>
-                                <td><span class="badge border border-dark category-programming px-3 py-2">PROGRAMMING</span></td>
-                                <td>2/3</td>
-                            </tr>
-                            Add more rows here
-                        </tbody>
-                    </table>
-                </div>
-                !-->
                 <!-- Matthew Bibaoco - 10/28/2025 !-->
                 <?php
-                    include('mysql_connect.php');
+                    include('includes/mysql_connect.php');
                     
                     $select_query = "SELECT * FROM users ORDER BY user_id ASC";
                     $result = mysqli_query($conn, $select_query);
@@ -130,7 +46,30 @@
                                     <td><?php echo $row['name'] ?></td>
                                     <td><?php echo $row['email'] ?></td>
                                     <td><?php echo $row['role'] ?></td>
-                                    <td>EDIT DELETE</td>
+                                    <td>
+                                        <button type="button" class="btn" 
+                                            data-bs-toggle="modal" 
+                                            data-bs-target="#editModal"
+                                            data-id="<?php echo $row['user_id']; ?>"
+                                            data-name="<?php echo htmlspecialchars($row['name']); ?>"
+                                            data-email="<?php echo htmlspecialchars($row['email']); ?>"
+                                            data-role="<?php echo htmlspecialchars($row['role']); ?>">
+                                        <img 
+                                            src="Assets\Images\Icons\Edit.png" 
+                                            alt="Edit" 
+                                            class="img-fluid"
+                                            style="max-width: 32px;"
+                                        >
+                                    </button>
+                                        <a href="actions\users\delete_user.php?id=<?php echo $row['user_id']?>" onclick="return confirm('Are you sure you want to delete this item?');">
+                                            <img 
+                                                src="Assets\Images\Icons\Delete.png" 
+                                                alt="Delete" 
+                                                class="img-fluid"
+                                                style="max-width: 32px;"
+                                            >
+                                        </a>
+                                    </td>
                                 </tr>
                             <?php } ?>
                         </tbody>
@@ -141,37 +80,89 @@
 
         <!-- Matthew Bibaoco - 10/31/2025 !-->
         <!-- Modal -->
-        <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="userModalLabel">Add New User</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal fade" id="addModal" onsubmit="return confirm('Are you sure you want to add this user?')" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="userModalLabel">Add New User</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="actions/users/add_user.php" method="POST">
+                            <div class="mb-3">
+                                <label class="form-label">Name:</label>
+                                <input type="text" name="name" class="form-control" required />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email:</label>
+                                <input type="email" name="email" class="form-control" required />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Password:</label>
+                                <input type="password" name="password" class="form-control" required />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Role:</label>
+                                <input type="text" name="role" class="form-control" required />
+                            </div>
+                            <button type="submit" class="btn btn-success" >Add</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="modal-body">
-                <form action="add_user.php" method="POST">
-                <div class="mb-3">
-                    <label class="form-label">Name:</label>
-                    <input type="text" name="name" class="form-control" required />
+        </div>
+
+        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="userModalLabel">Edit User</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="actions/users/update_user.php" method="POST">
+                            <input type="hidden" name="edit_id" id="edit_id">
+                            <div class="mb-3">
+                                <label class="form-label">Name:</label>
+                                <input type="text" name="edit_name" id="edit_name" class="form-control" required />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email:</label>
+                                <input type="email" name="edit_email" id="edit_email" class="form-control" required />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Password:</label>
+                                <input type="password" name="password" class="form-control" required />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Role:</label>
+                                <input type="text" name="edit_role" id="edit_role" class="form-control" required />
+                            </div>
+                            <button type="submit" class="btn btn-success">Update</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label">Email:</label>
-                    <input type="email" name="email" class="form-control" required />
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Password:</label>
-                    <input type="password" name="password" class="form-control" required />
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Role:</label>
-                    <input type="text" name="role" class="form-control" required />
-                </div>
-                <button type="submit" class="btn btn-success">Add</button>
-                </form>
-            </div>
             </div>
         </div>
     </div>
 </div>
-<?php include("bars.php"); ?>
-<?php include("main_footer.php"); ?>
+<?php include("includes/bars.php"); ?>
+<?php include("includes/main_footer.php"); ?>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const editModal = document.getElementById('editModal');
+    editModal.addEventListener('show.bs.modal', function (event) {
+        const button = event.relatedTarget;
+        const id = button.getAttribute('data-id');
+        const name = button.getAttribute('data-name');
+        const email = button.getAttribute('data-email');
+        const role = button.getAttribute('data-role');
+
+        // Fill the modal input fields
+        document.getElementById('edit_id').value = id;
+        document.getElementById('edit_name').value = name;
+        document.getElementById('edit_email').value = email;
+        document.getElementById('edit_role').value = role;
+    });
+});
+</script>
