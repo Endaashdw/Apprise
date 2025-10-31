@@ -1,4 +1,4 @@
-<?php include("includes/main_header.php"); ?>
+<?php include("Includes/main_header.php"); ?>
 <!-- Matthew Bibaoco - 10/15/2025 !-->
 <div class="d-flex justify-content-center align-items-center vh-100 projects">
     <div class="bg-light rounded shadow w-75 h-75">
@@ -25,7 +25,7 @@
             <div class="col-12">
                 <!-- Matthew Bibaoco - 10/28/2025 !-->
                 <?php
-                    include('includes/mysql_connect.php');
+                    include('Includes/mysql_connect.php');
                     
                     $select_query = "SELECT * FROM users ORDER BY user_id ASC";
                     $result = mysqli_query($conn, $select_query);
@@ -88,7 +88,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="actions/users/add_user.php" method="POST">
+                        <form action="Actions/Users/add_user.php" method="POST">
                             <div class="mb-3">
                                 <label class="form-label">Name:</label>
                                 <input type="text" name="name" class="form-control" required />
@@ -120,7 +120,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="actions/users/update_user.php" method="POST">
+                        <form action="Actions/Users/update_user.php" method="POST">
                             <input type="hidden" name="edit_id" id="edit_id">
                             <div class="mb-3">
                                 <label class="form-label">Name:</label>
@@ -146,23 +146,6 @@
         </div>
     </div>
 </div>
-<?php include("includes/bars.php"); ?>
-<?php include("includes/main_footer.php"); ?>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    const editModal = document.getElementById('editModal');
-    editModal.addEventListener('show.bs.modal', function (event) {
-        const button = event.relatedTarget;
-        const id = button.getAttribute('data-id');
-        const name = button.getAttribute('data-name');
-        const email = button.getAttribute('data-email');
-        const role = button.getAttribute('data-role');
-
-        // Fill the modal input fields
-        document.getElementById('edit_id').value = id;
-        document.getElementById('edit_name').value = name;
-        document.getElementById('edit_email').value = email;
-        document.getElementById('edit_role').value = role;
-    });
-});
-</script>
+<?php include("Includes/bars.php"); ?>
+<?php include("Includes/main_footer.php"); ?>
+<?php include("Assets/Scripts/update_user.js"); ?>

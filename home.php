@@ -1,5 +1,5 @@
-<?php include("includes/main_header.php"); ?>
-<?php include("includes/bars.php"); ?>
+<?php include("Includes/main_header.php"); ?>
+<?php include("Includes/bars.php"); ?>
 
 <!-- Kaizen Batang - 10/15/2025 -->
 <section class="main min-vh-100 mt-lg-5">
@@ -63,4 +63,4 @@
 </section>
 
 
-<?php include("includes/main_footer.php"); ?>
+<?php include("Includes/main_footer.php"); ?>
