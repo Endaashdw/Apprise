@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 27, 2025 at 02:18 PM
+-- Generation Time: Nov 02, 2025 at 12:02 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,31 +20,15 @@ SET time_zone = "+00:00";
 --
 -- Database: `apprise_db`
 --
-CREATE DATABASE IF NOT EXISTS apprise_db;
-USE apprise_db;
--- --------------------------------------------------------
-
---
--- Table structure for table `projects`
---
-
-CREATE TABLE IF NOT EXISTS  `projects` (
-  `project_id` int(11) NOT NULL,
-  `project_name` varchar(255) DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
-  `documentation_link` varchar(255) DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `team_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
+CREATE DATABASE IF NOT EXISTS `apprise_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `apprise_db`;
 
 --
 -- Table structure for table `tasks`
 --
 
-CREATE TABLE IF NOT EXISTS  `tasks` (
+DROP TABLE IF EXISTS `tasks`;
+CREATE TABLE `tasks` (
   `task_id` int(11) NOT NULL,
   `task_name` varchar(255) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
@@ -54,25 +38,13 @@ CREATE TABLE IF NOT EXISTS  `tasks` (
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `teams`
+-- Dumping data for table `tasks`
 --
 
-CREATE TABLE IF NOT EXISTS  `teams` (
-  `team_id` int(11) NOT NULL,
-  `team_name` varchar(255) DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `teams`
---
-
-INSERT INTO `teams` (`team_id`, `team_name`, `description`, `created_at`) VALUES
-(1, 'Apprise', 'Apprise Developers of USLS', '2025-10-27 21:01:59');
+REPLACE INTO `tasks` (`task_id`, `task_name`, `description`, `task_status`, `due_date`, `project_id`, `user_id`) VALUES
+(1, 'Player movement', 'PROGRAMMING', 'Incomplete', '2025-11-04 16:01:10', 1, 17),
+(2, 'Remind to work', 'Remind to work on game programming', 'For Review', '2025-11-02 20:30:45', 2, 17);
 
 -- --------------------------------------------------------
 
@@ -80,7 +52,8 @@ INSERT INTO `teams` (`team_id`, `team_name`, `description`, `created_at`) VALUES
 -- Table structure for table `users`
 --
 
-CREATE TABLE IF NOT EXISTS  `users` (
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
   `team_id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -94,8 +67,61 @@ CREATE TABLE IF NOT EXISTS  `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `team_id`, `name`, `email`, `username`, `user_password`, `role`) VALUES
-(1, 1, 'Magnus C.', 'magnus.c@apprise.com', 'Magnus C.', 'password001', 'Programming');
+REPLACE INTO `users` (`user_id`, `team_id`, `name`, `email`, `username`, `user_password`, `role`) VALUES
+(16, 1, 'Kaizen B.', 'kb@apprise.com', 'Kaizen B.', '001', 'ASSET/ART'),
+(17, 1, 'Matthew B.', 'mb@apprise.com', 'Matthew B.', '002', 'PROGRAMMING'),
+(18, 1, 'Julian G.', 'jg@apprise.com', 'Julian G.', '003', 'ASSETS/ART'),
+(19, 1, 'Daniel G.', 'dj@apprise.com', 'Daniel G.', '004', 'ANIMATION'),
+(20, 1, 'Oscar L.', 'ol@apprise.com', 'Oscar L.', '005', 'ASSETS/ART'),
+(21, 1, 'Leian T.', 'lt@apprise.com', 'Leian T.', '006', 'GAME DESIGN');
+
+--
+-- Table structure for table `teams`
+--
+
+DROP TABLE IF EXISTS `teams`;
+CREATE TABLE `teams` (
+  `team_id` int(11) NOT NULL,
+  `team_name` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `teams`
+--
+
+REPLACE INTO `teams` (`team_id`, `team_name`, `description`, `created_at`) VALUES
+(1, 'Apprise', 'Apprise Developers of USLS', '2025-10-27 21:01:59');
+
+-- --------------------------------------------------------
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `projects`
+--
+
+DROP TABLE IF EXISTS `projects`;
+CREATE TABLE `projects` (
+  `project_id` int(11) NOT NULL,
+  `project_name` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `documentation_link` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `team_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `projects`
+--
+
+REPLACE INTO `projects` (`project_id`, `project_name`, `description`, `documentation_link`, `created_at`, `updated_at`, `team_id`) VALUES
+(1, 'Apprise Website', 'Apprise Website', 'https://github.com/Endaashdw/Apprise.git', '2025-10-15 16:02:38', '2025-11-02 16:02:38', 1),
+(2, 'GAME PROG', 'dummy text', 'http://localhost/phpmyadmin/', '2025-11-02 17:43:58', NULL, 1);
+
+-- --------------------------------------------------------
 
 --
 -- Indexes for dumped tables
@@ -137,13 +163,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
-  MODIFY `project_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `project_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `task_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `task_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `teams`
@@ -155,7 +181,7 @@ ALTER TABLE `teams`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Constraints for dumped tables
