@@ -8,19 +8,19 @@
             <h1 class="m-0">Team Members</h1>
             </div>
             <div class="col-2 col-md-1 d-flex justify-content-center align-items-center">
-            <!-- Trigger Button -->
-            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#addModal">
-                <img 
-                    src="Assets\Images\Icons\Plus.png" 
-                    alt="Plus" 
-                    class="img-fluid"
-                    style="max-width: 32px;"
-                >
-            </button>
+                <!-- Trigger Button -->
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#addModal">
+                    <img 
+                        src="Assets\Images\Icons\Plus.png" 
+                        alt="Plus" 
+                        class="img-fluid"
+                        style="max-width: 32px;"
+                    >
+                </button>
             </div>
         </div>
 
-        <!-- Project Table -->
+        <!-- Team Table -->
         <div class="row justify-content-center mt-3">
             <div class="col-12">
                 <!-- Matthew Bibaoco - 10/28/2025 !-->
@@ -34,10 +34,10 @@
                     <table class="table table-bordered table-striped table-hover table-responsive">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Common Role</th>
-                                <th></th>
+                                <th style="width: 30%;">Name</th>
+                                <th style="width: 30%;">Email</th>
+                                <th style="width: 30%;">Common Role</th>
+                                <th style="width: 10%;"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -148,4 +148,4 @@
 </div>
 <?php include("Includes/bars.php"); ?>
 <?php include("Includes/main_footer.php"); ?>
-<?php include("Assets/Scripts/update_user.js"); ?>
+<script><?php include("Assets/Scripts/update_user.js"); ?></script>
