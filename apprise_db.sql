@@ -60,7 +60,7 @@ REPLACE INTO `tasks` (`task_id`, `task_name`, `description`, `task_status`, `due
 
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
-  `team_id` int(11) NOT NULL,
+  `team_id` int(11) NULL,
   `name` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `username` varchar(255) DEFAULT NULL,
