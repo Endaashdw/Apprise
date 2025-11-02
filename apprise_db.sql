@@ -23,11 +23,16 @@ SET time_zone = "+00:00";
 CREATE DATABASE IF NOT EXISTS `apprise_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `apprise_db`;
 
+DROP TABLE IF EXISTS `tasks`;
+DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS `projects`;
+DROP TABLE IF EXISTS `teams`;
+
 --
 -- Table structure for table `tasks`
 --
 
-DROP TABLE IF EXISTS `tasks`;
+
 CREATE TABLE `tasks` (
   `task_id` int(11) NOT NULL,
   `task_name` varchar(255) DEFAULT NULL,
@@ -52,7 +57,7 @@ REPLACE INTO `tasks` (`task_id`, `task_name`, `description`, `task_status`, `due
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
+
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
   `team_id` int(11) NOT NULL,
@@ -79,7 +84,7 @@ REPLACE INTO `users` (`user_id`, `team_id`, `name`, `email`, `username`, `user_p
 -- Table structure for table `teams`
 --
 
-DROP TABLE IF EXISTS `teams`;
+
 CREATE TABLE `teams` (
   `team_id` int(11) NOT NULL,
   `team_name` varchar(255) DEFAULT NULL,
@@ -102,7 +107,7 @@ REPLACE INTO `teams` (`team_id`, `team_name`, `description`, `created_at`) VALUE
 -- Table structure for table `projects`
 --
 
-DROP TABLE IF EXISTS `projects`;
+
 CREATE TABLE `projects` (
   `project_id` int(11) NOT NULL,
   `project_name` varchar(255) DEFAULT NULL,
