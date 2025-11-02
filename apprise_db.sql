@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2025 at 12:02 PM
+-- Generation Time: Nov 02, 2025 at 01:08 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -17,21 +17,48 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
---
--- Database: `apprise_db`
---
-CREATE DATABASE IF NOT EXISTS `apprise_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `apprise_db`;
-
 DROP TABLE IF EXISTS `tasks`;
 DROP TABLE IF EXISTS `users`;
 DROP TABLE IF EXISTS `projects`;
 DROP TABLE IF EXISTS `teams`;
 
 --
--- Table structure for table `tasks`
+-- Database: `apprise_db`
+--
+CREATE DATABASE IF NOT EXISTS `apprise_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `apprise_db`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `projects`
 --
 
+CREATE TABLE `projects` (
+  `project_id` int(11) NOT NULL,
+  `project_name` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `documentation_link` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `status` enum('Finished','In Progress','On Hold','Abandoned') NOT NULL DEFAULT 'In Progress',
+  `due_date` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT NULL,
+  `team_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `projects`
+--
+
+REPLACE INTO `projects` (`project_id`, `project_name`, `description`, `documentation_link`, `created_at`, `status`, `due_date`, `updated_at`, `team_id`) VALUES
+(1, 'Apprise Website', 'Apprise Website', 'https://github.com/Endaashdw/Apprise.git', '2025-10-15 16:02:38', 'In Progress', '2025-11-02 20:07:13', '2025-11-02 16:02:38', 1),
+(2, 'GAME PROG', 'dummy text', 'http://localhost/phpmyadmin/', '2025-11-02 17:43:58', 'In Progress', '2025-11-02 20:07:13', NULL, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tasks`
+--
 
 CREATE TABLE `tasks` (
   `task_id` int(11) NOT NULL,
@@ -54,9 +81,28 @@ REPLACE INTO `tasks` (`task_id`, `task_name`, `description`, `task_status`, `due
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Table structure for table `teams`
 --
 
+CREATE TABLE `teams` (
+  `team_id` int(11) NOT NULL,
+  `team_name` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `teams`
+--
+
+REPLACE INTO `teams` (`team_id`, `team_name`, `description`, `created_at`) VALUES
+(1, 'Apprise', 'Apprise Developers of USLS', '2025-10-27 21:01:59');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
 
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
@@ -79,54 +125,6 @@ REPLACE INTO `users` (`user_id`, `team_id`, `name`, `email`, `username`, `user_p
 (19, 1, 'Daniel G.', 'dj@apprise.com', 'Daniel G.', '004', 'ANIMATION'),
 (20, 1, 'Oscar L.', 'ol@apprise.com', 'Oscar L.', '005', 'ASSETS/ART'),
 (21, 1, 'Leian T.', 'lt@apprise.com', 'Leian T.', '006', 'GAME DESIGN');
-
---
--- Table structure for table `teams`
---
-
-
-CREATE TABLE `teams` (
-  `team_id` int(11) NOT NULL,
-  `team_name` varchar(255) DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `teams`
---
-
-REPLACE INTO `teams` (`team_id`, `team_name`, `description`, `created_at`) VALUES
-(1, 'Apprise', 'Apprise Developers of USLS', '2025-10-27 21:01:59');
-
--- --------------------------------------------------------
-
--- --------------------------------------------------------
-
---
--- Table structure for table `projects`
---
-
-
-CREATE TABLE `projects` (
-  `project_id` int(11) NOT NULL,
-  `project_name` varchar(255) DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
-  `documentation_link` varchar(255) DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `team_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `projects`
---
-
-REPLACE INTO `projects` (`project_id`, `project_name`, `description`, `documentation_link`, `created_at`, `updated_at`, `team_id`) VALUES
-(1, 'Apprise Website', 'Apprise Website', 'https://github.com/Endaashdw/Apprise.git', '2025-10-15 16:02:38', '2025-11-02 16:02:38', 1),
-(2, 'GAME PROG', 'dummy text', 'http://localhost/phpmyadmin/', '2025-11-02 17:43:58', NULL, 1);
-
--- --------------------------------------------------------
 
 --
 -- Indexes for dumped tables

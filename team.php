@@ -98,10 +98,6 @@
                                 <input type="email" name="email" class="form-control" required />
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Password:</label>
-                                <input type="password" name="password" class="form-control" required />
-                            </div>
-                            <div class="mb-3">
                                 <label class="form-label">Role:</label>
                                 <input type="text" name="role" class="form-control" required />
                             </div>
@@ -125,14 +121,6 @@
                             <div class="mb-3">
                                 <label class="form-label">Name:</label>
                                 <input type="text" name="edit_name" id="edit_name" class="form-control" required />
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Email:</label>
-                                <input type="email" name="edit_email" id="edit_email" class="form-control" required />
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Password:</label>
-                                <input type="password" name="password" class="form-control" required />
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Role:</label>
