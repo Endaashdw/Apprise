@@ -1,30 +1,68 @@
 <?php
     include("../../Includes/mysql_connect.php");
+
     $name = $_POST['name'];
     $email = $_POST['email'];
-    $password = $_POST['password'];
     $role = strtoupper($_POST['role']);
+    $team_id = 1; // Example: current team ID, replace with actual team/session value
 
-    $insert_query = "INSERT INTO `users` (`team_id`, `name`, `email`, `username`, `user_password`, `role`) VALUES
-(1, '$name', '$email', '$name', '$password', '$role');";
-    $result = mysqli_query($conn, $insert_query);
+    // Check if the user exists in the users table
+    $check_user_query = "
+        SELECT user_id 
+        FROM users
+        WHERE name = '$name' 
+        AND email = '$email'
+    ";
+    $check_user_result = mysqli_query($conn, $check_user_query);
 
-    if ($result) {
-        echo "<script>
-            alert('New member added successfully!');
-            window.location.href = 'team.php';
-        </script>";
-        exit();
+    if (mysqli_num_rows($check_user_result) > 0) {
+        $user = mysqli_fetch_assoc($check_user_result);
+        $user_id = $user['user_id'];
+
+        // Check if user is already in this team
+        $check_team_query = "
+            SELECT * 
+            FROM team_users 
+            WHERE team_id = '$team_id' 
+            AND user_id = '$user_id'
+        ";
+        $check_team_result = mysqli_query($conn, $check_team_query);
+
+        if (mysqli_num_rows($check_team_result) > 0) {
+            // User already in this team
+            echo "<script>
+                alert('This user is already in your team!');
+                window.location.href = '../../team.php';
+            </script>";
+            exit();
+        } else {
+            // Add existing user to this team
+            $insert_team_user = "
+                INSERT INTO team_users (team_id, user_id, role)
+                VALUES ('$team_id', '$user_id', '$role')
+            ";
+            $insert_result = mysqli_query($conn, $insert_team_user);
+
+            if ($insert_result) {
+                echo "<script>
+                    alert('Existing user added to your team successfully!');
+                    window.location.href = '../../team.php';
+                </script>";
+                exit();
+            } else {
+                echo "<script>
+                    alert('Error adding user to team: " . addslashes($conn->error) . "');
+                    window.location.href = '../../team.php';
+                </script>";
+                exit();
+            }
+        }
     } else {
+        // User not found in users table
         echo "<script>
-            alert('Error adding member: " . addslashes($conn->error) . "');
-            window.location.href = 'team.php';
+            alert('User not found. Please ensure they are registered first.');
+            window.location.href = '../../team.php';
         </script>";
         exit();
     }
-
-    $conn->close();
-
 ?>
-
-<br><a href="../../team.php">VIEW ALL MEMBERS</a>

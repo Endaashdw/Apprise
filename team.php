@@ -26,8 +26,14 @@
                 <!-- Matthew Bibaoco - 10/28/2025 !-->
                 <?php
                     include('Includes/mysql_connect.php');
+                    $team_id = 1;
                     
-                    $select_query = "SELECT * FROM users ORDER BY user_id ASC";
+                    $select_query = "SELECT users.*, team_users.role AS team_role
+                                    FROM users
+                                    JOIN team_users ON users.user_id = team_users.user_id
+                                    WHERE team_users.team_id = '$team_id'
+                                    ORDER BY users.user_id ASC;
+                                ";
                     $result = mysqli_query($conn, $select_query);
                 ?>
                 <div class ="col-sm-12">
@@ -45,28 +51,27 @@
                                 <tr>
                                     <td><?php echo $row['name'] ?></td>
                                     <td><?php echo $row['email'] ?></td>
-                                    <td><?php echo $row['role'] ?></td>
+                                    <td><?php echo $row['team_role'] ?></td>
                                     <td>
                                         <button type="button" class="btn" 
                                             data-bs-toggle="modal" 
                                             data-bs-target="#editModal"
                                             data-id="<?php echo $row['user_id']; ?>"
                                             data-name="<?php echo htmlspecialchars($row['name']); ?>"
-                                            data-email="<?php echo htmlspecialchars($row['email']); ?>"
-                                            data-role="<?php echo htmlspecialchars($row['role']); ?>">
+                                            data-role="<?php echo htmlspecialchars($row['team_role']); ?>">
                                         <img 
                                             src="Assets\Images\Icons\Edit.png" 
                                             alt="Edit" 
                                             class="img-fluid"
-                                            style="max-width: 32px;"
+                                            style="max-width: 24px;"
                                         >
                                     </button>
-                                        <a href="actions\users\delete_user.php?id=<?php echo $row['user_id']?>" onclick="return confirm('Are you sure you want to delete this item?');">
+                                        <a href="actions/Tasks/delete_task.php?team_id=<?php echo $team_id; ?>&user_id=<?php echo $row['user_id']; ?>" onclick="return confirm('Are you sure you want to delete this item? This task will be permanently deleted.');">
                                             <img 
                                                 src="Assets\Images\Icons\Delete.png" 
                                                 alt="Delete" 
                                                 class="img-fluid"
-                                                style="max-width: 32px;"
+                                                style="max-width: 24px;"
                                             >
                                         </a>
                                     </td>
