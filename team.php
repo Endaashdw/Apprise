@@ -1,4 +1,7 @@
 <?php include("Includes/main_header.php"); ?>
+<?php include("Includes/session_data.php"); ?>
+<?php include("Includes/bars.php"); ?>
+
 <!-- Matthew Bibaoco - 10/15/2025 !-->
 <div class="d-flex justify-content-center align-items-center vh-100 projects">
     <div class="bg-light rounded shadow w-75 h-75">
@@ -145,6 +148,5 @@
         </div>
     </div>
 </div>
-<?php include("Includes/bars.php"); ?>
 <?php include("Includes/main_footer.php"); ?>
 <script><?php include("Assets/Scripts/update_user.js"); ?></script>
