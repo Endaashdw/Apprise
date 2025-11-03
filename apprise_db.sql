@@ -106,7 +106,7 @@ REPLACE INTO `teams` (`team_id`, `team_name`, `description`, `created_at`) VALUE
 
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
-  `team_id` int(11) NOT NULL,
+  `team_id` int(11) NULL,
   `name` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `username` varchar(255) DEFAULT NULL,

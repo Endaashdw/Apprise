@@ -42,7 +42,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-1 my-1 ps-2" href="#">
+            <a class="nav-link mx-1 my-1 ps-2" href="Actions/login/logout.php">
               <img src="Assets/Images/Icons/Logout.png" alt="Logout" width="24" height="24">
               <span>Logout</span>
             </a>
