@@ -173,7 +173,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form action="Actions/Tasks/update_task.php" method="POST">
+                            <form action="Actions/Tasks/update_task.php?project_id=<?php echo $project_id?>" method="POST">
                                 <input type="hidden" name="task_id" id="task_id">
                                 <div class="mb-3">
                                     <label class="form-label">Task:</label>

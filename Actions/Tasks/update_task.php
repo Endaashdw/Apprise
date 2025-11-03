@@ -1,38 +1,39 @@
 <?php
 include("../../Includes/mysql_connect.php");
 
-if (isset($_POST['edit_id'])) {
-    $user_id = $_POST['edit_id'];
-    $name = $_POST['edit_name'];
-    $role = strtoupper($_POST['edit_role']); // uppercase role
-    $team_id = $_GET['team_id'];
+if (isset($_POST['task_id'])) {
+    $task_id = $_POST['task_id'];
+    $task_name = $_POST['task_name'];
+    $task_status = $_POST['task_status'];
+    $description = $_POST['description'];
+    $category = strtoupper($_POST['category']); // uppercase role
+    $due_date = $_POST['due_date']; 
+    $assignee = $_POST['assignee']; 
+    $project_id = $_GET['project_id'];
 
     $update_user = "
-        UPDATE users 
-        SET name = '$name',
-            username = '$name'
-        WHERE user_id = '$user_id'
+        UPDATE tasks 
+        SET task_name = '$task_name',
+            description = '$description',
+            category = '$category',
+            task_status = '$task_status',
+            due_date = '$due_date',
+            user_id = '$assignee'
+        WHERE task_id = '$task_id'
     ";
     mysqli_query($conn, $update_user);
-
-    // Update the role
-    $update_role = "
-        UPDATE team_users 
-        SET role = '$role' 
-        WHERE user_id = '$user_id' AND team_id = '$team_id'
-    ";
-    $result = mysqli_query($conn, $update_role);
+    $result = mysqli_query($conn, $update_user);
 
     if ($result) {
         echo "<script>
             alert('Member updated successfully!');
-            window.location.href = '../../team.php?team_id=$team_id';
+            window.location.href = '../../projects.php?project_id=$project_id';
         </script>";
         exit();
     } else {
         echo "<script>
             alert('Error updating member: " . addslashes($conn->error) . "');
-            window.location.href = '../../team.php?team_id=$team_id';
+            window.location.href = '../../projects.php?project_id=$project_id';
         </script>";
         exit();
     }

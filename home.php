@@ -39,7 +39,7 @@
                             </a>
                         </div>
                         <div class="col-4 d-flex flex-column justify-content-center align-items-center">
-                            <a href="calendar.php">
+                            <a href="calendar.php?project_id=<?php echo $row['project_id']?>">
                                 <img src="Assets/Images/Icons/Calendar.png" alt="Calendar" width="80" height="80">
                             </a>
                         </div>
