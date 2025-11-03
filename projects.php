@@ -31,7 +31,7 @@
                     include('Includes/mysql_connect.php');
                     $project_id = $_GET['project_id']; // stored when the user logs in
                     
-                    $select_query = "SELECT tasks.*, users.name AS user_name
+                    $select_query = "SELECT tasks.*, users.username AS user_name
                                     FROM tasks 
                                     JOIN users ON tasks.user_id = users.user_id 
                                     WHERE tasks.project_id = '$project_id'

@@ -1,7 +1,5 @@
 <?php
     include("../../Includes/mysql_connect.php");
-
-    $name = $_POST['name'];
     $email = $_POST['email'];
     $role = strtoupper($_POST['role']);
     $team_id = $_GET['team_id']; // Example: current team ID, replace with actual team/session value
@@ -10,8 +8,7 @@
     $check_user_query = "
         SELECT user_id 
         FROM users
-        WHERE name = '$name' 
-        AND email = '$email'
+        WHERE email = '$email'
     ";
     $check_user_result = mysqli_query($conn, $check_user_query);
 

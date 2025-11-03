@@ -64,7 +64,7 @@
                         <tbody>
                             <?php while($row = mysqli_fetch_array($result)) { ?>
                                 <tr>
-                                    <td><?php echo $row['name'] ?></td>
+                                    <td><?php echo $row['name'] ?> (<?php echo $row['username'] ?>)</td>
                                     <td><?php echo $row['email'] ?></td>
                                     <td><?php echo $row['team_role'] ?></td>
                                     <td>
@@ -109,10 +109,6 @@
                     </div>
                     <div class="modal-body">
                         <form action="Actions/Users/add_user.php?team_id=<?php echo $team_id; ?>" method="POST">
-                            <div class="mb-3">
-                                <label class="form-label">Name:</label>
-                                <input type="text" name="name" class="form-control" required />
-                            </div>
                             <div class="mb-3">
                                 <label class="form-label">Email:</label>
                                 <input type="email" name="email" class="form-control" required />
