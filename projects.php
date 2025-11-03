@@ -102,7 +102,7 @@
                 <!-- Matthew Bibaoco - 10/28/2025 !-->
                 <?php
                     include('Includes/mysql_connect.php');
-                    $project_id = 1; // stored when the user logs in
+                    $project_id = 2; // stored when the user logs in
                     
                     $select_query = "SELECT tasks.*, users.name AS user_name
                                     FROM tasks 

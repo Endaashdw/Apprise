@@ -25,15 +25,21 @@
             <div class="col-12">
                 <!-- Matthew Bibaoco - 10/28/2025 !-->
                 <?php
+                    session_start();
+                    if (empty($_SESSION['logged_in'])) {
+                        header('Location: /index.php');
+                        exit;
+                    }
+                    $user_id = $_SESSION['user_id'];
                     include('Includes/mysql_connect.php');
-                    $team_id = 1;
+                    
                     
                     $select_query = "SELECT users.*, team_users.role AS team_role
                                     FROM users
                                     JOIN team_users ON users.user_id = team_users.user_id
                                     WHERE team_users.team_id = '$team_id'
                                     ORDER BY users.user_id ASC;
-                                ";
+                                    ";
                     $result = mysqli_query($conn, $select_query);
                 ?>
                 <div class ="col-sm-12">
