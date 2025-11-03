@@ -78,7 +78,7 @@
                                             style="max-width: 24px;"
                                         >
                                     </button>
-                                        <a href="actions/Tasks/delete_task.php?team_id=<?php echo $team_id; ?>&user_id=<?php echo $row['user_id']; ?>" onclick="return confirm('Are you sure you want to delete this item? This task will be permanently deleted.');">
+                                        <a href="Actions/Users/delete_user.php?team_id=<?php echo $team_id; ?>&user_id=<?php echo $row['user_id']; ?>" onclick="return confirm('Are you sure you want to delete this item? This task will be permanently deleted.');">
                                             <img 
                                                 src="Assets\Images\Icons\Delete.png" 
                                                 alt="Delete" 
