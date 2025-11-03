@@ -28,15 +28,18 @@
             <div class="col-12">
                 <!-- Matthew Bibaoco - 10/28/2025 !-->
                 <?php
-                    session_start();
-                    if (empty($_SESSION['logged_in'])) {
-                        header('Location: /index.php');
-                        exit;
-                    }
-                    $user_id = $_SESSION['user_id'];
                     include('Includes/mysql_connect.php');
+
+                    $team_query = "SELECT team_id FROM team_users WHERE user_id = '$user_id';";
+                    $team_result = mysqli_query($conn, $team_query);
+                    $team_row = mysqli_fetch_array($team_result);
                     
-                    
+                    if ($team_row && isset($team_row['team_id'])) {
+                        $team_id = $team_row['team_id'];
+                    } else {
+                        $team_id = null; // show warning that there are no teams for this user PLACEHOLDER **
+                    }
+
                     $select_query = "SELECT users.*, team_users.role AS team_role
                                     FROM users
                                     JOIN team_users ON users.user_id = team_users.user_id
