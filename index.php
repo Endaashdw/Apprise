@@ -1,6 +1,4 @@
-<?php 
-    include("Includes/main_header.php");
-?>
+<?php include("Includes/main_header.php"); ?>
 
 <!-- Kaizen Batang - 11/2/2025 -->
 <section class="login min-vh-100">

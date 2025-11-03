@@ -1,20 +1,10 @@
 <?php include("Includes/main_header.php"); ?>
+<?php include("Includes/session_data.php"); ?>
 <?php include("Includes/bars.php"); ?>
 
 <!-- Kaizen Batang - 10/15/2025 -->
 <section class="main min-vh-100 mt-lg-5">
     <?php
-        // Kaizen Batang - 11/2/2025
-        // Checks if user is logged in
-        session_start();
-        if (empty($_SESSION['logged_in'])) {
-            header('Location: /index.php');
-            exit;
-        }
-        
-        $user_id = $_SESSION['user_id'];
-        // ---
-        
         include('Includes/mysql_connect.php');
 
         $query = "  SELECT projects.*, teams.team_name, users.name AS user_name
