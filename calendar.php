@@ -6,7 +6,7 @@
 <div class="d-flex justify-content-center align-items-center vh-100 projects">
     <div class="bg-light rounded shadow w-75 h-75">
         <?php
-            include 'calendar_task.php';
+            include 'Includes/calendar_task.php';
             include 'Includes/mysql_connect.php'; // make sure the path is correct
 
             $project_id = $_GET['project_id'];
@@ -45,7 +45,7 @@
 
         <!-- Project Table -->
         <div class="row justify-content-center mt-3">
-            <div id="calendar-container">
+            <div class="calendar-container" style="width:100%; height:100%; overflow:auto;">
                 <?php echo $calendar; ?>
             </div>
         </div>
