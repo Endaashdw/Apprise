@@ -10,13 +10,13 @@
     if ($result) {
         echo "<script>
             alert('User removed from the team successfully!');
-            window.location.href = '../../team.php';
+            window.location.href = '../../team.php?team_id=$teamID';
         </script>";
         exit();
     } else {
         echo "<script>
             alert('Error removing user from team: " . addslashes($conn->error) . "');
-            window.location.href = '../../team.php';
+            window.location.href = '../../team.php?team_id=$teamID';
         </script>";
         exit();
     }

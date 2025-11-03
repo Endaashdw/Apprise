@@ -7,7 +7,7 @@
     <?php
         include('Includes/mysql_connect.php');
 
-        $query = "  SELECT projects.*, teams.team_name, users.name AS user_name
+        $query = "  SELECT projects.*, teams.team_name, teams.team_id AS team_id, users.name AS user_name
                     FROM projects
                     JOIN teams ON projects.team_id = teams.team_id
                     JOIN team_users ON teams.team_id = team_users.team_id
@@ -29,12 +29,12 @@
                     <h1 class="mt-auto text-uppercase fw-bold"><?php echo $row['project_name'] ?></h1>
                     <div class="row w-100">
                         <div class="col-4 d-flex flex-column justify-content-center align-items-center">
-                            <a href="projects.php">
+                            <a href="projects.php?project_id=<?php echo $row['project_id']?>">
                                 <img src="Assets/Images/Icons/Assignment.png" alt="Projects" width="80" height="80">
                             </a>
                         </div>
                         <div class="col-4 d-flex flex-column justify-content-center align-items-center">
-                            <a href="team.php">
+                            <a href="team.php?team_id=<?php echo $row['team_id']?>">
                                 <img src="Assets/Images/Icons/People.png" alt="People" width="80" height="80">
                             </a>
                         </div>

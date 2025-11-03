@@ -4,7 +4,7 @@
     $name = $_POST['name'];
     $email = $_POST['email'];
     $role = strtoupper($_POST['role']);
-    $team_id = 1; // Example: current team ID, replace with actual team/session value
+    $team_id = $_GET['team_id']; // Example: current team ID, replace with actual team/session value
 
     // Check if the user exists in the users table
     $check_user_query = "
@@ -32,7 +32,7 @@
             // User already in this team
             echo "<script>
                 alert('This user is already in your team!');
-                window.location.href = '../../team.php';
+                window.location.href = '../../team.php?team_id=$team_id';
             </script>";
             exit();
         } else {
@@ -46,13 +46,13 @@
             if ($insert_result) {
                 echo "<script>
                     alert('Existing user added to your team successfully!');
-                    window.location.href = '../../team.php';
+                    window.location.href = '../../team.php?team_id=$team_id';
                 </script>";
                 exit();
             } else {
                 echo "<script>
                     alert('Error adding user to team: " . addslashes($conn->error) . "');
-                    window.location.href = '../../team.php';
+                    window.location.href = '../../team.php?team_id=$team_id';
                 </script>";
                 exit();
             }
@@ -61,7 +61,7 @@
         // User not found in users table
         echo "<script>
             alert('User not found. Please ensure they are registered first.');
-            window.location.href = '../../team.php';
+            window.location.href = '../../team.php?team_id=$team_id';
         </script>";
         exit();
     }

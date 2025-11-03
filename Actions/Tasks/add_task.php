@@ -15,13 +15,13 @@
     if ($result) {
         echo "<script>
             alert('New member added successfully!');
-            window.location.href = '../../projects.php';
+            window.location.href = '../../projects.php?project_id=$project_id';
         </script>";
         exit();
     } else {
         echo "<script>
             alert('Error adding member: " . addslashes($conn->error) . "');
-            window.location.href = '../../projects.php';
+            window.location.href = '../../projects.php?project_id=$project_id';
         </script>";
         exit();
     }

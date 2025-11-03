@@ -30,7 +30,7 @@
                 <?php
                     include('Includes/mysql_connect.php');
 
-                    $team_query = "SELECT team_id FROM team_users WHERE user_id = '$user_id';";
+                    /*$team_query = "SELECT team_id FROM team_users WHERE user_id = '$user_id';";
                     $team_result = mysqli_query($conn, $team_query);
                     $team_row = mysqli_fetch_array($team_result);
                     
@@ -39,6 +39,9 @@
                     } else {
                         $team_id = null; // show warning that there are no teams for this user PLACEHOLDER **
                     }
+                    */
+
+                    $team_id = $_GET['team_id'];
 
                     $select_query = "SELECT users.*, team_users.role AS team_role
                                     FROM users
@@ -105,7 +108,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="Actions/Users/add_user.php" method="POST">
+                        <form action="Actions/Users/add_user.php?team_id=<?php echo $team_id; ?>" method="POST">
                             <div class="mb-3">
                                 <label class="form-label">Name:</label>
                                 <input type="text" name="name" class="form-control" required />
@@ -133,7 +136,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="Actions/Users/update_user.php" method="POST">
+                        <form action="Actions/Users/update_user.php?team_id=<?php echo $team_id; ?>" method="POST">
                             <input type="hidden" name="edit_id" id="edit_id">
                             <div class="mb-3">
                                 <label class="form-label">Name:</label>

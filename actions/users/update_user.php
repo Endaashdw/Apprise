@@ -5,7 +5,7 @@ if (isset($_POST['edit_id'])) {
     $user_id = $_POST['edit_id'];
     $name = $_POST['edit_name'];
     $role = strtoupper($_POST['edit_role']); // uppercase role
-    $team_id = 1; 
+    $team_id = $_GET['team_id'];
 
     $update_user = "
         UPDATE users 
@@ -26,13 +26,13 @@ if (isset($_POST['edit_id'])) {
     if ($result) {
         echo "<script>
             alert('Member updated successfully!');
-            window.location.href = '../../team.php';
+            window.location.href = '../../team.php?team_id=$team_id';
         </script>";
         exit();
     } else {
         echo "<script>
             alert('Error updating member: " . addslashes($conn->error) . "');
-            window.location.href = '../../team.php';
+            window.location.href = '../../team.php?team_id=$team_id';
         </script>";
         exit();
     }

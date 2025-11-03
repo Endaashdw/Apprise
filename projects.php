@@ -25,87 +25,11 @@
 
         <!-- Project Table -->
         <div class="row justify-content-center mt-3">
-            <!--
-            <div class="col-12">
-                <div class="table-responsive">
-                    <table class="table align-middle">
-                        <thead>
-                            <tr>
-                                <th>TASK</th>
-                                <th>STATUS</th>
-                                <th>CATEGORY</th>
-                                <th>ASSIGNEE(S)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Player Movement</td>
-                                <td><span class="badge border border-dark status-completed px-3 py-2">COMPLETED</span></td>
-                                <td><span class="badge border border-dark category-programming px-3 py-2">PROGRAMMING</span></td>
-                                <td>
-                                    <div class="d-flex align-items-center gap-2">
-                                        <div class="rounded-circle bg-danger border border-dark text-white text-center fw-bold" style="width:30px;height:30px;line-height:30px;">M</div>
-                                        <i class="bi bi-three-dots-vertical"></i>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Initial Concept Art</td>
-                                <td><span class="badge border border-dark status-completed px-3 py-2">COMPLETED</span></td>
-                                <td><span class="badge border border-dark category-assets px-3 py-2">ASSETS/ART</span></td>
-                                <td>
-                                    <div class="d-flex align-items-center gap-2">
-                                        <div class="rounded-circle bg-warning border border-dark text-white text-center fw-bold" style="width:30px;height:30px;line-height:30px;">J</div>
-                                        <i class="bi bi-three-dots-vertical"></i>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Final GDD</td>
-                                <td><span class="badge border border-dark status-for-review px-3 py-2">FOR REVIEW</span></td>
-                                <td><span class="badge border border-dark category-game-design px-3 py-2">GAME DESIGN</span></td>
-                                <td>
-                                    <div class="d-flex align-items-center gap-2">
-                                        <div class="rounded-circle bg-warning border border-dark text-white text-center fw-bold" style="width:30px;height:30px;line-height:30px;">J</div>
-                                        <div class="rounded-circle bg-info border border-dark text-white text-center fw-bold" style="width:30px;height:30px;line-height:30px;">L</div>
-                                        <i class="bi bi-three-dots-vertical"></i>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Inventory System</td>
-                                <td><span class="badge border border-dark status-for-review px-3 py-2">FOR REVIEW</span></td>
-                                <td><span class="badge border border-dark category-programming px-3 py-2">PROGRAMMING</span></td>
-                                <td>
-                                    <div class="d-flex align-items-center gap-2">
-                                        <div class="rounded-circle bg-danger border border-dark text-white text-center fw-bold" style="width:30px;height:30px;line-height:30px;">M</div>
-                                        <i class="bi bi-three-dots-vertical"></i>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Initial Player Model</td>
-                                <td><span class="badge border border-dark status-incomplete px-3 py-2">INCOMPLETE</span></td>
-                                <td><span class="badge border border-dark category-assets px-3 py-2">ASSETS/ART</span></td>
-                                <td>
-                                    <div class="d-flex align-items-center gap-2">
-                                        <div class="rounded-circle bg-danger border border-dark text-white text-center fw-bold" style="width:30px;height:30px;line-height:30px;">K</div>
-                                        <i class="bi bi-three-dots-vertical"></i>
-                                    </div>
-                                </td>
-                            </tr>
-                            Add more rows here
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            !-->
-
             <div class="col-12">
                 <!-- Matthew Bibaoco - 10/28/2025 !-->
                 <?php
                     include('Includes/mysql_connect.php');
-                    $project_id = 2; // stored when the user logs in
+                    $project_id = $_GET['project_id']; // stored when the user logs in
                     
                     $select_query = "SELECT tasks.*, users.name AS user_name
                                     FROM tasks 
@@ -154,7 +78,7 @@
                                             style="max-width: 32px;"
                                         >
                                         </button>
-                                        <a href="Actions\Tasks\delete_task.php?id=<?php echo $row['task_id']?>" onclick="return confirm('Are you sure you want to delete this item?');">
+                                        <a href="Actions\Tasks\delete_task.php?id=<?php echo $row['task_id']?>&project_id=<?php echo $project_id ?>" onclick="return confirm('Are you sure you want to delete this item?');">
                                             <img 
                                                 src="Assets\Images\Icons\Delete.png" 
                                                 alt="Delete" 
@@ -175,7 +99,7 @@
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="userModalLabel">Add New User</h5>
+                            <h5 class="modal-title" id="userModalLabel">Add New Task</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -245,7 +169,7 @@
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="userModalLabel">Add New User</h5>
+                            <h5 class="modal-title" id="userModalLabel">Edit Task</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
