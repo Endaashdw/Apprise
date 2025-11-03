@@ -33,7 +33,6 @@
                     $user_id = $_SESSION['user_id'];
                     include('Includes/mysql_connect.php');
                     
-                    
                     $select_query = "SELECT users.*, team_users.role AS team_role
                                     FROM users
                                     JOIN team_users ON users.user_id = team_users.user_id
