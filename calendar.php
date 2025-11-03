@@ -27,7 +27,7 @@
                 $title = $task['task_name'];
                 $date = $task['due_date'];
                 $status = strtolower($task['task_status']);
-                $color = 'gray'; // default color
+                $color = 'blue'; // default color
 
                 // Optional: set color by status or category
                 switch ($status) {

@@ -126,9 +126,34 @@
     word-wrap: break-word;
 }
 
-.calendar .days .day_num .event.green { background-color: #51ce57; }
-.calendar .days .day_num .event.blue { background-color: #518fce; }
-.calendar .days .day_num .event.red { background-color: #ce5151; }
+.calendar .days .day_num .event {
+    border: 1px solid black;
+    background-color: #ff00d4;
+}
+
+.calendar .days .day_num .event.green {
+    background-color: #28a745;
+}
+
+.calendar .days .day_num .event.orange {
+    background-color: #fdc714 !important;
+    color: #000 !important;
+}
+
+
+.calendar .days .day_num .event.red {
+    background-color: #dc3545;
+}
+
+.calendar .days .day_num .event.purple {
+    background-color: #a200ff !important;
+    color: #fff !important;
+}
+
+.calendar .days .day_num .event.blue {
+    background-color: #007bff;
+}
+
 
 .calendar .days .day_num:nth-child(7n+1) {
     border-left: 1px solid #e6e9ea;
