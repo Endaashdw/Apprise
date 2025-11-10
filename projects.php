@@ -130,7 +130,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Deadline:</label>
-                                    <input type="date" name="due_date" class="form-control" required />
+                                    <input type="datetime-local" name="due_date" class="form-control" required />
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Assignee:</label>
@@ -200,7 +200,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Deadline:</label>
-                                    <input type="date" name="due_date" class="form-control" required />
+                                    <input type="datetime-local" name="due_date" class="form-control" required />
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Assignee:</label>

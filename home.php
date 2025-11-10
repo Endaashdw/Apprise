@@ -8,7 +8,7 @@
         <?php
             include('Includes/mysql_connect.php');
 
-            $query = "  SELECT projects.*, teams.team_name, teams.team_id AS team_id, users.name AS user_name
+            $query = "  SELECT projects.*, teams.team_name AS team_name, teams.team_id AS team_id, users.name AS user_name
                         FROM projects
                         JOIN teams ON projects.team_id = teams.team_id
                         JOIN team_users ON teams.team_id = team_users.team_id
@@ -55,6 +55,10 @@
                                         <tr>
                                             <th scope="row">Created At:</th>
                                             <td><?php echo $row['created_at'] ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Team:</th>
+                                            <td><?php echo $row['team_name'] ?></td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Status:</th>

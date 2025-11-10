@@ -26,13 +26,13 @@ if (isset($_POST['task_id'])) {
 
     if ($result) {
         echo "<script>
-            alert('Member updated successfully!');
+            alert('Task updated successfully!');
             window.location.href = '../../projects.php?project_id=$project_id';
         </script>";
         exit();
     } else {
         echo "<script>
-            alert('Error updating member: " . addslashes($conn->error) . "');
+            alert('Error updating task: " . addslashes($conn->error) . "');
             window.location.href = '../../projects.php?project_id=$project_id';
         </script>";
         exit();

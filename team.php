@@ -135,10 +135,6 @@
                         <form action="Actions/Users/update_user.php?team_id=<?php echo $team_id; ?>" method="POST">
                             <input type="hidden" name="edit_id" id="edit_id">
                             <div class="mb-3">
-                                <label class="form-label">Name:</label>
-                                <input type="text" name="edit_name" id="edit_name" class="form-control" required />
-                            </div>
-                            <div class="mb-3">
                                 <label class="form-label">Role:</label>
                                 <input type="text" name="edit_role" id="edit_role" class="form-control" required />
                             </div>
