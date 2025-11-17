@@ -26,8 +26,7 @@
         <?php endif; ?>            
         <div class="row w-100">
             <div class="col-6 min-vh-100 d-flex flex-column justify-content-center align-items-center">
-                <h1>Apprise Logo</h1>
-                <h1>Tagline of Apprise</h1>
+                <img src="Assets/Images/Logos/LogoText.png"" alt="Apprise Logo with text">
             </div>
             <div class="col-6 min-vh-100 d-flex flex-column justify-content-center">
                 <form id="loginForm" action="Actions/login/authenticate.php" method="POST" class="w-100">
@@ -43,11 +42,15 @@
 
                     <div class="row">
                         <div class="col-6">
-                            <button type="button" class="btn btn-secondary btn-lg w-100" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
+                            <button type="button" class="btn btn-purple btn-lg w-100" data-bs-toggle="modal" data-bs-target="#registerModal">
+                                Register
+                            </button>
                         </div>
                     
                         <div class="col-6">
-                            <button type="submit" class="btn btn-primary btn-lg w-100">Login</button>
+                            <button type="submit" class="btn btn-purple btn-lg w-100">
+                                Login
+                            </button>
                         </div>
                     </div>
                 </form>

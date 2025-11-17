@@ -6,6 +6,35 @@
   box-sizing: border-box;
 }
 
+/* Buttons */
+.btn-purple {
+    background-color: #6F5075;
+    color: #FFF9F9;
+    border: 2px solid #6F5075;
+    border-radius: 8px;
+    transition: 0.2s ease-in-out;
+}
+
+.btn-purple:hover {
+    background-color: #5b4062;
+    color: #FFF9F9;
+    border-color: #5b4062;
+}
+
+.btn-white {
+    background-color: #FFF9F9;
+    color: #6F5075;
+    border: 2px solid #6F5075;
+    border-radius: 8px;
+    transition: 0.2s ease-in-out;
+}
+
+.btn-white:hover {
+    background-color: #5b4062;
+    color: #FFF9F9;
+    border-color: #5b4062;
+}
+
 /* Dashboard */
 
 .dashboard-tile {
