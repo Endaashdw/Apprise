@@ -24,7 +24,9 @@
                 });
             </script>
         <?php endif; ?>            
+
         <div class="row w-100">
+            <!-- Julian Gromea - 11/17/2025 -->
             <div class="col-6 min-vh-100 d-flex flex-column justify-content-center align-items-center">
                 <img src="Assets/Images/Logos/LogoText.png"" alt="Apprise Logo with text">
             </div>
@@ -99,8 +101,9 @@
                             </label>
                             <input type="password" class="form-control" id="user_password" name="user_password" required>
                         </div>
+                        <!-- Julian Gromea - 11/17/2025 -->
                         <div class="mb-3 d-flex flex-column align-items-end">
-                            <button type="submit" class="btn btn-success">Create Account</button>
+                            <button type="submit" class="btn btn-purple">Create Account</button>
                         </div>
                     </form>
                 </div>

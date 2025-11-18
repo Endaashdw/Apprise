@@ -132,7 +132,7 @@
                 </div>
         <?php } ?>
         <div class="position-fixed bottom-0 end-0 p-3 m-5" style="z-index:1080;">
-            <button type="button" class="btn btn-primary btn-lg rounded-circle" data-bs-toggle="modal" data-bs-target="#addProjectModal" style="width:66px; height:66px;">
+            <button type="button" class="btn btn-white btn-lg rounded-circle" data-bs-toggle="modal" data-bs-target="#addProjectModal" style="width:66px; height:66px;">
                 <img 
                     src="Assets\Images\Icons\Plus.png" 
                     alt="Plus"
@@ -171,7 +171,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="due_date" class="form-label">Due Date</label>
+                        <label for="due_date" class="form-label">Due Date & Time</label>
                         <input type="datetime-local" name="due_date" id="due_date" class="form-control" required>
                     </div>
 
@@ -212,8 +212,9 @@
                         </div>
                     </div>
                     
+                    <!-- Julian Gromea - 11/17/2025 -->
                     <div class="mb-3 d-flex flex-column align-items-end">
-                        <button type="submit" class="btn btn-success">Create Project</button>
+                        <button type="submit" class="btn btn-purple">Create Project</button>
                     </div>
                 </div>
             </form>

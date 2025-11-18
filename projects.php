@@ -78,7 +78,7 @@
                                             style="max-width: 32px;"
                                         >
                                         </button>
-                                        <a href="Actions\Tasks\delete_task.php?id=<?php echo $row['task_id']?>&project_id=<?php echo $project_id ?>" onclick="return confirm('Are you sure you want to delete this item?');">
+                                        <a href="Actions\Tasks\delete_task.php?id=<?php echo $row['task_id']?>&project_id=<?php echo $project_id ?>" onclick="return confirm('Are you sure you want to delete this task?');">
                                             <img 
                                                 src="Assets\Images\Icons\Delete.png" 
                                                 alt="Delete" 
@@ -157,7 +157,8 @@
                                         <?php endwhile; ?>
                                     </select>
                                 </div>
-                                <button type="submit" class="btn btn-success" >Add</button>
+                                <!-- Julian Gromea - 11/17/2025 -->
+                                <button type="submit" class="btn btn-purple" >Add</button>
                             </form>
                         </div>
                     </div>
@@ -227,7 +228,8 @@
                                         <?php endwhile; ?>
                                     </select>
                                 </div>
-                                <button type="submit" class="btn btn-success" >Edit</button>
+                                <!-- Julian Gromea - 11/17/2025 -->
+                                <button type="submit" class="btn btn-purple" >Edit</button>
                             </form>
                         </div>
                     </div>

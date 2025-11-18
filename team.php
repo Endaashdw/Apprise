@@ -81,7 +81,7 @@
                                             style="max-width: 24px;"
                                         >
                                     </button>
-                                        <a href="Actions/Users/delete_user.php?team_id=<?php echo $team_id; ?>&user_id=<?php echo $row['user_id']; ?>" onclick="return confirm('Are you sure you want to delete this item? This task will be permanently deleted.');">
+                                        <a href="Actions/Users/delete_user.php?team_id=<?php echo $team_id; ?>&user_id=<?php echo $row['user_id']; ?>" onclick="return confirm('Are you sure you want to delete this team member? This member will be permanently deleted.');">
                                             <img 
                                                 src="Assets\Images\Icons\Delete.png" 
                                                 alt="Delete" 
@@ -117,7 +117,7 @@
                                 <label class="form-label">Role:</label>
                                 <input type="text" name="role" class="form-control" required />
                             </div>
-                            <button type="submit" class="btn btn-success" >Add</button>
+                            <button type="submit" class="btn btn-purple" >Add</button>
                         </form>
                     </div>
                 </div>
@@ -138,7 +138,7 @@
                                 <label class="form-label">Role:</label>
                                 <input type="text" name="edit_role" id="edit_role" class="form-control" required />
                             </div>
-                            <button type="submit" class="btn btn-success">Update</button>
+                            <button type="submit" class="btn btn-purple">Update</button>
                         </form>
                     </div>
                 </div>

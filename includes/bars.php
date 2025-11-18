@@ -19,11 +19,12 @@ $project_result = mysqli_query($conn, $project_query);
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand fw-bold pe-lg-5" href="#">Apprise</a>
+    <!-- Julian Gromea - 11/17/2025 -->
+    <a class="navbar-brand fw-bold pe-lg-5" href="#"><img src="Assets/Images/Logos/TextSm.png" alt="text"></a>
 
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" data-bs-backdrop="false" data-bs-scroll="true">
       <div class="offcanvas-header">
-        <a class="offcanvas-title px-2 rounded-3 text-decoration-none" id="offcanvasNavbarLabel" href="#">Apprise</a>
+        <a class="offcanvas-title px-2 rounded-3 text-decoration-none" id="offcanvasNavbarLabel" href="#"><img src="Assets/Images/Logos/LogoSm.png" alt="logo small"></a>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
 
