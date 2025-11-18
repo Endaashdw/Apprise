@@ -95,7 +95,7 @@
             </div>
 
             <!-- Modal -->
-            <div class="modal fade" id="addModal" onsubmit="return confirm('Are you sure you want to add this user?')" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
+            <div class="modal fade" id="addModal" onsubmit="return confirm('Are you sure you want to add this task?')" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -166,7 +166,7 @@
             </div>
 
             <!-- Modal -->
-            <div class="modal fade" id="editModal" onsubmit="return confirm('Are you sure you want to add this user?')" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
+            <div class="modal fade" id="editModal" onsubmit="return confirm('Are you sure you want to edit this task?')" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">

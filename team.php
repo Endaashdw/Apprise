@@ -124,7 +124,7 @@
             </div>
         </div>
 
-        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
+        <div class="modal fade" id="editModal" onsubmit="return confirm('Are you sure you want to edit this user?')" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
