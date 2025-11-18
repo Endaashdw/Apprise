@@ -48,12 +48,7 @@ $project_result = mysqli_query($conn, $project_query);
           </li>
           <?php endwhile; ?>
 
-          <li class="nav-item">
-            <a class="nav-link mx-1 my-1 ps-2" href="#">
-              <img src="Assets/Images/Icons/Settings.png" alt="Settings" width="24" height="24">
-              <span>Settings</span>
-            </a>
-          </li>
+          <!-- Leian Togores - 11/17/2025 -->
 
           <li class="nav-item">
             <a class="nav-link mx-1 my-1 ps-2" href="Actions/login/logout.php">
