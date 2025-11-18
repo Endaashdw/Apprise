@@ -1,17 +1,17 @@
 <?php
-include("Includes/mysql_connect.php");
-session_start();
+  include("Includes/mysql_connect.php");
+  session_start();
 
-$user_id = $_SESSION['user_id'];
+  $user_id = $_SESSION['user_id'];
 
-// get all projects that the user is a member of
-$project_query = "
-    SELECT p.project_id, p.project_name 
-    FROM projects p
-    JOIN team_users tu ON p.team_id = tu.team_id
-    WHERE tu.user_id = '$user_id'
-";
-$project_result = mysqli_query($conn, $project_query);
+  // get all projects that the user is a member of
+  $project_query = "
+      SELECT p.project_id, p.project_name 
+      FROM projects p
+      JOIN team_users tu ON p.team_id = tu.team_id
+      WHERE tu.user_id = '$user_id'
+  ";
+  $project_result = mysqli_query($conn, $project_query);
 ?>
 
 <nav class="navbar bg-body-tertiary fixed-top">

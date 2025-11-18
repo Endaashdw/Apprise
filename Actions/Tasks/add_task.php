@@ -10,7 +10,7 @@
     $assignee = $_POST['assignee'];
 
     $insert_query = "INSERT INTO `tasks` (`project_id`, `user_id`, `task_name`, `task_status`, `description`, `category`, `due_date`) VALUES
-('$project_id', '$assignee', '$task_name', '$task_status', '$description', '$category', '$due_date');";
+    ('$project_id', '$assignee', '$task_name', '$task_status', '$description', '$category', '$due_date');";
     $result = mysqli_query($conn, $insert_query);
 
     if ($result) {
