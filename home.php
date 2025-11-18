@@ -30,17 +30,17 @@
                             <div class="row w-100">
                                 <div class="col-4 d-flex flex-column justify-content-center align-items-center">
                                     <a href="projects.php?project_id=<?php echo $row['project_id']?>">
-                                        <img src="Assets/Images/Icons/Assignment.png" alt="Projects" width="80" height="80">
+                                        <img src="Assets/Images/Icons/Assignment.png" alt="Projects" width="47" height="47">
                                     </a>
                                 </div>
                                 <div class="col-4 d-flex flex-column justify-content-center align-items-center">
                                     <a href="team.php?team_id=<?php echo $row['team_id']?>">
-                                        <img src="Assets/Images/Icons/People.png" alt="People" width="80" height="80">
+                                        <img src="Assets/Images/Icons/People.png" alt="People" width="47" height="47">
                                     </a>
                                 </div>
                                 <div class="col-4 d-flex flex-column justify-content-center align-items-center">
                                     <a href="calendar.php?project_id=<?php echo $row['project_id']?>">
-                                        <img src="Assets/Images/Icons/Calendar.png" alt="Calendar" width="80" height="80">
+                                        <img src="Assets/Images/Icons/Calendar.png" alt="Calendar" width="47" height="47">
                                     </a>
                                 </div>
                             </div>

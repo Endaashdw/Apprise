@@ -16,6 +16,6 @@
     <!-- Your custom CSS -->
     <link rel="stylesheet" href="./Assets/style.css">
 
-    <title>My Page</title>
+    <title>Apprise</title>
 </head>
 <body>

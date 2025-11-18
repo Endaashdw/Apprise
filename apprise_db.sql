@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2025 at 01:08 PM
+-- Generation Time: Nov 03, 2025 at 08:48 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -17,11 +17,11 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
-DROP TABLE IF EXISTS `tasks`;
-DROP TABLE IF EXISTS `users`;
-DROP TABLE IF EXISTS `projects`;
-DROP TABLE IF EXISTS `teams`;
-
+DROP TABLE IF EXISTS tasks;
+DROP TABLE IF EXISTS team_users;
+DROP TABLE IF EXISTS projects;
+DROP TABLE IF EXISTS teams;
+DROP TABLE IF EXISTS users;
 --
 -- Database: `apprise_db`
 --
@@ -33,6 +33,7 @@ USE `apprise_db`;
 --
 -- Table structure for table `projects`
 --
+
 
 CREATE TABLE `projects` (
   `project_id` int(11) NOT NULL,
@@ -60,10 +61,12 @@ REPLACE INTO `projects` (`project_id`, `project_name`, `description`, `documenta
 -- Table structure for table `tasks`
 --
 
+
 CREATE TABLE `tasks` (
   `task_id` int(11) NOT NULL,
   `task_name` varchar(255) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
+  `category` text DEFAULT NULL,
   `task_status` enum('Incomplete','For Review','Completed','Not Started','On Hold') NOT NULL,
   `due_date` datetime DEFAULT NULL,
   `project_id` int(11) NOT NULL,
@@ -74,15 +77,16 @@ CREATE TABLE `tasks` (
 -- Dumping data for table `tasks`
 --
 
-REPLACE INTO `tasks` (`task_id`, `task_name`, `description`, `task_status`, `due_date`, `project_id`, `user_id`) VALUES
-(1, 'Player movement', 'PROGRAMMING', 'Incomplete', '2025-11-04 16:01:10', 1, 17),
-(2, 'Remind to work', 'Remind to work on game programming', 'For Review', '2025-11-02 20:30:45', 2, 17);
+REPLACE INTO `tasks` (`task_id`, `task_name`, `description`, `category`, `task_status`, `due_date`, `project_id`, `user_id`) VALUES
+(2, 'Remind to work', 'Remind to work on game programming', NULL, 'For Review', '2025-11-02 20:30:45', 2, 26),
+(7, 'Traversal', 'Traversal between spawns', 'PROGRAMMING', 'Not Started', '2025-11-03 00:00:00', 1, 26);
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `teams`
 --
+
 
 CREATE TABLE `teams` (
   `team_id` int(11) NOT NULL,
@@ -101,30 +105,44 @@ REPLACE INTO `teams` (`team_id`, `team_name`, `description`, `created_at`) VALUE
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `team_users`
+--
+
+
+CREATE TABLE `team_users` (
+  `team_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `role` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `team_users`
+--
+
+REPLACE INTO `team_users` (`team_id`, `user_id`, `role`) VALUES
+(1, 26, 'PROGRAMMING');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
+
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
-  `team_id` int(11) NULL,
   `name` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `username` varchar(255) DEFAULT NULL,
-  `user_password` varchar(255) DEFAULT NULL,
-  `role` varchar(255) DEFAULT NULL
+  `user_password` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-REPLACE INTO `users` (`user_id`, `team_id`, `name`, `email`, `username`, `user_password`, `role`) VALUES
-(16, 1, 'Kaizen B.', 'kb@apprise.com', 'Kaizen B.', '001', 'ASSET/ART'),
-(17, 1, 'Matthew B.', 'mb@apprise.com', 'Matthew B.', '002', 'PROGRAMMING'),
-(18, 1, 'Julian G.', 'jg@apprise.com', 'Julian G.', '003', 'ASSETS/ART'),
-(19, 1, 'Daniel G.', 'dj@apprise.com', 'Daniel G.', '004', 'ANIMATION'),
-(20, 1, 'Oscar L.', 'ol@apprise.com', 'Oscar L.', '005', 'ASSETS/ART'),
-(21, 1, 'Leian T.', 'lt@apprise.com', 'Leian T.', '006', 'GAME DESIGN');
+REPLACE INTO `users` (`user_id`, `name`, `email`, `username`, `user_password`) VALUES
+(26, 'Todd Howard', 'th@apprise.com', 'ToddHoward', '$2y$10$cYwLK7KcZtk0GhkTK.mgWO4b4RocDrLrqvd6NRkpGnH5p0RtPf7nm');
 
 --
 -- Indexes for dumped tables
@@ -152,11 +170,17 @@ ALTER TABLE `teams`
   ADD PRIMARY KEY (`team_id`);
 
 --
+-- Indexes for table `team_users`
+--
+ALTER TABLE `team_users`
+  ADD PRIMARY KEY (`team_id`,`user_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`),
-  ADD KEY `team_id` (`team_id`);
+  ADD PRIMARY KEY (`user_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -172,7 +196,7 @@ ALTER TABLE `projects`
 -- AUTO_INCREMENT for table `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `task_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `task_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `teams`
@@ -184,7 +208,7 @@ ALTER TABLE `teams`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Constraints for dumped tables
@@ -204,10 +228,11 @@ ALTER TABLE `tasks`
   ADD CONSTRAINT `tasks_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
 
 --
--- Constraints for table `users`
+-- Constraints for table `team_users`
 --
-ALTER TABLE `users`
-  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`team_id`) REFERENCES `teams` (`team_id`);
+ALTER TABLE `team_users`
+  ADD CONSTRAINT `team_users_ibfk_1` FOREIGN KEY (`team_id`) REFERENCES `teams` (`team_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `team_users_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
